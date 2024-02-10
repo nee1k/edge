@@ -38,17 +38,6 @@ Before you begin, ensure you have met the following requirements:
     docker run --name edge -v icicle:/app/logs edge
     ```
 
-### Usage
-
-Once the application is running, it will start producing messages to your Kafka cluster based on its configuration. You can customize the behavior of the producer by modifying environment variables or the `main.py` script according to your needs.
-
-## Configuration
-
-This project uses environment variables for configuration. You can modify these variables in the Docker run command using the `-e` flag. For example:
-
-- `KAFKA_BOOTSTRAP_SERVERS`: Specifies the Kafka brokers to connect to.
-- `TOPIC_NAME`: The name of the Kafka topic to produce messages to.
-
 ## Development
 
 For development purposes, you can make changes to the `main.py` script to alter the message production logic. Ensure to rebuild the Docker image and rerun the container to test your changes:
