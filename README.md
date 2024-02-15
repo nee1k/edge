@@ -40,8 +40,12 @@ Before you begin, ensure you have met the following requirements:
 
 ## Development
 
-For development purposes, you can make changes to the `main.py` script to alter the message production logic. Ensure to rebuild the Docker image and rerun the container to test your changes:
+For development purposes, you can make changes to docker volume rmthe `main.py` script to alter the message production logic. Ensure to rebuild the Docker image and rerun the container to test your changes:
 
 ```bash
-docker build -t edge . && docker run --name edge -v icicle:/app/logs edge
+docker build -t edge . && docker rm -f edge || true  && docker run --name edge -v icicle:/app/logs edge
+```
+
+```bash
+docker rm -f edge && docker rmi -f edge && docker volume rm icicle && docker build -t edge . && docker run --name edge -v icicle:/app/logs edge
 ```
